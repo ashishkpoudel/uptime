@@ -5,7 +5,7 @@ import { UserEntity } from 'user/infrastructure/typeorm/entities/user.entity';
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      UserEntity,
+      // UserEntity,
     ]),
   ],
 })
