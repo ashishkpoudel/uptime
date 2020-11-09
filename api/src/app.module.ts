@@ -11,7 +11,7 @@ import { UserModule } from 'user/user.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       host: process.env.DB_HOST,
       port: parseInt(process.env.DB_PORT),
       password: process.env.DB_PASSWORD,
