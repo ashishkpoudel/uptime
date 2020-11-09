@@ -25,5 +25,6 @@ services:
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_DB=${DB_DATABASE}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
+    command: postgres -p ${DB_PORT}
     ports:
-      - ${DB_PORT}:5432
+      - ${DB_PORT}:${DB_PORT}

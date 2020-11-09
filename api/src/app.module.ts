@@ -1,22 +1,23 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import database from 'config/database';
 import { AuthModule } from 'auth/auth.module';
 import { AppController } from 'app.controller';
 import { AppService } from 'app.service';
 import { UserModule } from 'user/user.module';
+import dbConfig from 'config/database';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT),
-      password: process.env.DB_PASSWORD,
-      username: process.env.DB_USERNAME,
-      synchronize: database.synchronize,
+      host: dbConfig.host,
+      port: dbConfig.port,
+      database: dbConfig.database,
+      password: dbConfig.password,
+      username: dbConfig.username,
+      synchronize: dbConfig.synchronize,
       entities: [],
     }),
     AuthModule,
